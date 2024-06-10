@@ -1,0 +1,85 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permiso para acceder a internet -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProyectoRiojas"
+        tools:targetApi="31">
+
+        <!-- Actividad de inicio de sesión -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Actividad principal -->
+        <activity android:name=".MainActivity" />
+
+        <!-- Actividad para mostrar clientes -->
+        <activity android:name=".ClienteActivity" />
+
+        <!-- Actividad para insertar cliente -->
+        <activity android:name=".InsertarCliente" />
+
+        <!-- Actividad para editar cliente -->
+        <activity android:name=".Cliente.EditarClienteActivity"/>
+
+        <!-- Actividad para mostrar ventas -->
+        <activity android:name=".Venta.VentaActivity" />
+
+        <!-- Actividad para insertar venta -->
+        <activity android:name=".Venta.InsertarVenta" />
+
+        <!-- Actividad para mostrar compras -->
+        <activity android:name=".CompraActivity" />
+
+        <!-- Actividad para editar compra -->
+        <activity android:name=".Compra.CompraEditarActivity"/>
+
+        <!-- Actividad para insertar compra -->
+        <activity android:name=".InsertarCompra" />
+
+        <!-- Actividad para mostrar productos -->
+        <activity android:name=".Producto.ProductoActivity" />
+
+        <!-- Actividad para insertar producto -->
+        <activity android:name=".Producto.InsertarProducto" />
+
+        <!-- Actividad para editar producto -->
+        <activity android:name=".Producto.EditarProductoActivity"/>
+
+        <!-- Actividad para mostrar proveedores -->
+        <activity android:name=".ProveedorActivity" />
+
+        <!-- Actividad para insertar proveedor -->
+        <activity android:name=".Proveedor.InsertarProveedor" />
+
+        <!-- Actividad para editar proveedor -->
+        <activity android:name=".Proveedor.EditarProveedorActivity"/>
+
+        <!-- Actividad para mostrar usuarios -->
+        <activity android:name=".Usuario.UsuarioActivity" />
+
+        <!-- Actividad para insertar usuario -->
+        <activity android:name=".Usuario.InsertarUsuario" />
+
+        <!-- Actividad para editar usuario -->
+        <activity android:name=".Usuario.EditarUsuarioActivity"/>
+        <activity android:name=".Venta.EditarVentaActivity" />
+        <activity android:name=".ProcesoActivity" />" />
+
+    </application>
+</manifest>
