@@ -25,17 +25,13 @@ class EditarProductoActivity : AppCompatActivity() {
         editTextCantidad = findViewById(R.id.editTextCantidadProducto)
         buttonGuardar = findViewById(R.id.buttonActualizarProducto)
 
-        // Obtener datos pasados desde la actividad anterior
         val idProducto = intent.getIntExtra("idProducto", -1)
         val nombre = intent.getStringExtra("nombre")
-        val precio = intent.getIntExtra("precio", 0)
+        val precio = intent.getDoubleExtra("precio", 0.0)
         val cantidad = intent.getIntExtra("cantidad", 0)
-
-        // Mostrar los datos del producto en los campos de edición
         editTextNombre.setText(nombre)
         editTextPrecio.setText(precio.toString())
         editTextCantidad.setText(cantidad.toString())
-
         buttonGuardar.setOnClickListener {
             guardarCambios(idProducto)
         }
@@ -76,4 +72,3 @@ class EditarProductoActivity : AppCompatActivity() {
         })
     }
 }
-

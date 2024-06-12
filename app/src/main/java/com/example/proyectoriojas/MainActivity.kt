@@ -8,7 +8,6 @@ import com.example.proyectoriojas.Producto.ProductoActivity
 import com.example.proyectoriojas.Usuario.UsuarioActivity
 import com.example.proyectoriojas.Venta.VentaActivity
 
-//import com.example.proyectoriojas.Venta.VentaActivity
 
 class MainActivity : AppCompatActivity() {
 

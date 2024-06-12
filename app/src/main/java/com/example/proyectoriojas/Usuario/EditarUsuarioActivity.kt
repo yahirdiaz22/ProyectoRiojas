@@ -23,12 +23,9 @@ class EditarUsuarioActivity : AppCompatActivity() {
         editTextCorreo = findViewById(R.id.editTextNuevoCorreo)
         buttonGuardar = findViewById(R.id.buttonGuardarCambios)
 
-        // Obtener datos pasados desde la actividad anterior
-        val idUsuario = intent.getIntExtra("idUsuario", -1)
+        val idUsuario = intent.getIntExtra("IDUSUARIO", -1)
         val nombre = intent.getStringExtra("NOMBRE")
         val correo = intent.getStringExtra("CORREO")
-
-        // Mostrar los datos del usuario en los campos de edición
         editTextNombre.setText(nombre)
         editTextCorreo.setText(correo)
 

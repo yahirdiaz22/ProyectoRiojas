@@ -28,14 +28,12 @@ class CompraEditarActivity : AppCompatActivity() {
         editTextPrecioUnitario = findViewById(R.id.editTextPrecioUnitario)
         buttonActualizarCompra = findViewById(R.id.buttonActualizar)
 
-        // Obtener datos pasados desde la actividad anterior
         val idCompra = intent.getIntExtra("ID_COMPRA", -1)
         val cantidadComprada = intent.getIntExtra("CANTIDAD_COMPRADA", 0)
         val fecha = intent.getStringExtra("FECHA")
         val nombre = intent.getStringExtra("NOMBRE")
         val precioUnitario = intent.getIntExtra("PRECIO_UNITARIO", 0)
 
-        // Mostrar los datos de la compra en los campos de edición
         editTextCantidad.setText(cantidadComprada.toString())
         editTextFecha.setText(fecha)
         editTextNombre.setText(nombre)  // Corregido
@@ -49,7 +47,7 @@ class CompraEditarActivity : AppCompatActivity() {
     private fun guardarCambios(idCompra: Int) {
         val cantidadComprada = editTextCantidad.text.toString().toInt()
         val fecha = editTextFecha.text.toString()
-        val nombre = editTextNombre.text.toString()  // Corregido
+        val nombre = editTextNombre.text.toString()
         val precioUnitario = editTextPrecioUnitario.text.toString().toInt()
 
         val call = RetrofitClient.apiService.actualizarCompra(idCompra, cantidadComprada, fecha, precioUnitario, nombre)

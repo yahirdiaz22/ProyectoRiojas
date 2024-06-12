@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,6 +33,26 @@
         android:inputType="text"
         android:padding="12dp"
         android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Precio Unitario"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextTotal"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Total"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:enabled="false"
+        android:focusable="false" />
 
     <LinearLayout
         android:layout_width="match_parent"

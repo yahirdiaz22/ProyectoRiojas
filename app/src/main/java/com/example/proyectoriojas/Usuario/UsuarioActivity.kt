@@ -1,6 +1,7 @@
     package com.example.proyectoriojas.Usuario
 
     import Usuario
+    import UsuarioAdapter
     import android.content.Intent
     import android.os.Bundle
     import android.widget.Button
@@ -28,23 +29,19 @@
             buttonRegresar = findViewById(R.id.btnRegresar)
 
             buttonInsertar.setOnClickListener {
-                // Abrir la actividad para insertar un nuevo usuario
                 val intent = Intent(this, InsertarUsuario::class.java)
                 startActivity(intent)
             }
 
             buttonRegresar.setOnClickListener {
-                // Finalizar la actividad actual y regresar a la anterior
                 finish()
             }
 
-            // Inicializar la carga de usuarios
             obtenerUsuariosActivosDesdeAPI()
         }
 
         override fun onResume() {
             super.onResume()
-            // Volver a cargar los usuarios cuando la actividad vuelva a estar en primer plano
             obtenerUsuariosActivosDesdeAPI()
         }
 
@@ -54,7 +51,7 @@
                 override fun onResponse(call: Call<List<Usuario>>, response: Response<List<Usuario>>) {
                     if (response.isSuccessful) {
                         val usuarios = response.body() ?: emptyList()
-                        val usuariosActivos = usuarios.filter { it.status == 1 } // Filtrar usuarios activos
+                        val usuariosActivos = usuarios.filter { it.status == 1 }
 
                         val adapter = UsuarioAdapter(this@UsuarioActivity, usuariosActivos.toMutableList()) { usuario ->
                             confirmarEliminarUsuario(usuario)
@@ -89,7 +86,7 @@
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         Toast.makeText(this@UsuarioActivity, "Usuario eliminado: ${usuario.nombre}", Toast.LENGTH_SHORT).show()
-                        obtenerUsuariosActivosDesdeAPI() // Volver a cargar los usuarios después de eliminar
+                        obtenerUsuariosActivosDesdeAPI()
                     } else {
                         Toast.makeText(this@UsuarioActivity, "Error al eliminar usuario: ${response.code()}", Toast.LENGTH_SHORT).show()
                     }

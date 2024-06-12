@@ -20,7 +20,8 @@
 
         @GET("api/Cliente")
         fun obtenerClientes(): Call<List<Cliente>>
-
+        @GET("api/Usuario/VerificarCorreoExistente/VerificarCorreoExistente")
+        fun verificarCorreoExistente(@Query("correoElectronico") correoElectronico: String): Call<Boolean>
         @GET("/api/Usuario/VerificarExistenciaUsuario/VerificarExistencia")
         fun verificarExistenciaUsuario(
             @Query("correoElectronico") correoElectronico: String,
@@ -163,8 +164,10 @@
             @Query("cantidadVendida") cantidadVendida: Int,
             @Query("fecha") fecha: String,
             @Query("nombre") nombre: String,
-            @Query("status") status: Boolean = true
-        ): Call<Void>
+            @Query("precioUnitario") precioUnitario: Int,
+            @Query("total") total: Double,
+            @Query("status") status: Boolean = true,
+            ): Call<Void>
 
         // Eliminar una venta existente
         @DELETE("/api/Venta/{id}")
@@ -177,7 +180,9 @@
             @Query("cantidadVendida") cantidadVendida: Int,
             @Query("fecha") fecha: String,
             @Query("nombre") nombre: String,
-            @Query("status") status: Boolean = true
+            @Query("precioUnitario") precioUnitario: Int,
+            @Query("total") total: Double,
+            @Query("status") status: Boolean = true,
         ): Call<Void>
 
     }

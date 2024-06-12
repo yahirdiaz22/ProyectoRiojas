@@ -42,13 +42,6 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <TextView
-            android:id="@+id/textViewIdCompra"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ID Compra"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewCantidadComprada"
@@ -66,13 +59,6 @@
             android:text="Fecha"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewPrecioUnitario"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Precio Unitario"
-            android:textStyle="bold" />
     </LinearLayout>
 
     <ListView

@@ -30,23 +30,18 @@ class CompraActivity : AppCompatActivity() {
         buttonRegresar = findViewById(R.id.btnRegresar)
 
         buttonInsertar.setOnClickListener {
-            // Abrir la actividad para insertar una nueva compra
             val intent = Intent(this, InsertarCompra::class.java)
             startActivity(intent)
         }
-
         buttonRegresar.setOnClickListener {
-            // Finalizar la actividad actual y regresar a la anterior
             finish()
         }
 
-        // Inicializar la carga de compras
         obtenerComprasDesdeAPI()
     }
 
     override fun onResume() {
         super.onResume()
-        // Volver a cargar las compras cuando la actividad vuelva a estar en primer plano
         obtenerComprasDesdeAPI()
     }
 
@@ -61,12 +56,10 @@ class CompraActivity : AppCompatActivity() {
                     val adapter = CompraAdapter(this@CompraActivity, comprasConStatusUno.toMutableList(), ::confirmarEliminarCompra, ::editarCompra)
                     listViewCompras.adapter = adapter
                 } else {
-                    // Manejar errores de la respuesta
                 }
             }
 
             override fun onFailure(call: Call<List<Compra>>, t: Throwable) {
-                // Manejar errores de conexión
             }
         })
     }
@@ -92,14 +85,13 @@ class CompraActivity : AppCompatActivity() {
                         "Compra eliminada: ${compra.nombre}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    obtenerComprasDesdeAPI() // Volver a cargar las compras después de eliminar
+                    obtenerComprasDesdeAPI()
                 } else {
-                    // Manejar errores de la respuesta
+
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                // Manejar errores de conexión
             }
         })
     }
@@ -110,7 +102,6 @@ class CompraActivity : AppCompatActivity() {
             putExtra("CANTIDAD_COMPRADA", compra.cantidadComprada)
             putExtra("FECHA", compra.fecha)
             putExtra("PRECIO_UNITARIO", compra.precioUnitario)
-            // Agrega más extras según sea necesario
         }
         startActivity(intent)
     }

@@ -17,14 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="63dp">
 
-        <TextView
-            android:id="@+id/textViewIdCompra"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ID Compra"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewCantidadComprada"
@@ -44,14 +36,6 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/textViewPrecioUnitario"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Precio Unitario"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
 
         <ImageButton
             android:id="@+id/botonEliminar"

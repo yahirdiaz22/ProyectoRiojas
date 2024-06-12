@@ -27,14 +27,12 @@ class EditarClienteActivity : AppCompatActivity() {
         editTextTelefono = findViewById(R.id.editTextTelefono)
         buttonGuardar = findViewById(R.id.buttonActualizar)
 
-        // Obtener datos pasados desde la actividad anterior
         val idCliente = intent.getIntExtra("ID_CLIENTE", -1)
         val nombre = intent.getStringExtra("NOMBRE")
         val direccion = intent.getStringExtra("DIRECCION")
         val correo = intent.getStringExtra("CORREO")
         val telefono = intent.getStringExtra("TELEFONO")
 
-        // Mostrar los datos del cliente en los campos de edición
         editTextNombre.setText(nombre)
         editTextDireccion.setText(direccion)
         editTextCorreo.setText(correo)

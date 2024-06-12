@@ -2,12 +2,12 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Compra(
-    val idCompra: Int = 0, // Campo opcional, puede ser auto-generado o por defecto
+    val idCompra: Int = 0,
     val cantidadComprada: Int,
     val fecha: String,
     val precioUnitario: Double,
     val nombre: String,
-    val status: Int = 1 // Valor por defecto
+    val status: Int = 1
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -22,7 +22,7 @@ data class Compra(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(idCompra)
         parcel.writeInt(cantidadComprada)
-        parcel.writeString(fecha) // La fecha se mantiene igual, ya que está en formato de cadena
+        parcel.writeString(fecha)
         parcel.writeDouble(precioUnitario)
         parcel.writeInt(status)
         parcel.writeString(nombre)

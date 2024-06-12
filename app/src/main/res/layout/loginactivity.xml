@@ -50,32 +50,5 @@
             android:text="Iniciar Sesion"
             android:textColor="#3B84F1"
             android:textSize="28sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Social Login"
-            android:textSize="18dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="32dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_margin="16dp"
-                android:id="@+id/facebook_btn"
-                android:src="@drawable/facebook"/>
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_margin="16dp"
-                android:id="@+id/linkein_btn"
-                android:src="@drawable/linkein"/>
-        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

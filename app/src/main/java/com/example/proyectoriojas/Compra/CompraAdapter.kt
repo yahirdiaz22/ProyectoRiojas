@@ -19,10 +19,8 @@ class CompraAdapter(
 ) : ArrayAdapter<Compra>(context, R.layout.item_compra, dataSource) {
 
     private class ViewHolder {
-        lateinit var idCompra: TextView
         lateinit var cantidadComprada: TextView
         lateinit var fecha: TextView
-        lateinit var precioUnitario: TextView
         lateinit var botonEliminar: ImageButton
         lateinit var botonEditar: ImageButton
     }
@@ -34,10 +32,8 @@ class CompraAdapter(
         if (convertView == null) {
             view = LayoutInflater.from(context).inflate(R.layout.item_compra, parent, false)
             holder = ViewHolder()
-            holder.idCompra = view.findViewById(R.id.textViewIdCompra)
             holder.cantidadComprada = view.findViewById(R.id.textViewCantidadComprada)
             holder.fecha = view.findViewById(R.id.textViewFecha)
-            holder.precioUnitario = view.findViewById(R.id.textViewPrecioUnitario)
             holder.botonEliminar = view.findViewById(R.id.botonEliminar)
             holder.botonEditar = view.findViewById(R.id.botonEditar)
             view.tag = holder
@@ -50,10 +46,8 @@ class CompraAdapter(
         val compra = dataSource[position]
 
         // Asignar valores a los TextView
-        holder.idCompra.text = compra.idCompra.toString()
         holder.cantidadComprada.text = compra.cantidadComprada.toString()
         holder.fecha.text = compra.fecha
-        holder.precioUnitario.text = compra.precioUnitario.toString()
 
         // Configurar el botón eliminar
         holder.botonEliminar.setOnClickListener {

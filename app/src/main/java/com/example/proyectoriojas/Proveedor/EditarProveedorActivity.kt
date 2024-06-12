@@ -19,22 +19,18 @@ class EditarProveedorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.editarproveedor) // Corregido a "editarproveedor"
+        setContentView(R.layout.editarproveedor)
 
         editTextNombre = findViewById(R.id.editTextNombre)
         editTextDireccion = findViewById(R.id.editTextDireccion)
         editTextCorreo = findViewById(R.id.editTextCorreo)
         editTextTelefono = findViewById(R.id.editTextTelefono)
         buttonGuardar = findViewById(R.id.buttonActualizar)
-
-        // Obtener datos pasados desde la actividad anterior
         val idProveedor = intent.getIntExtra("ID_PROVEEDOR", -1)
         val nombre = intent.getStringExtra("NOMBRE")
         val direccion = intent.getStringExtra("DIRECCION")
         val correo = intent.getStringExtra("CORREO")
         val telefono = intent.getStringExtra("TELEFONO")
-
-        // Mostrar los datos del proveedor en los campos de edición
         editTextNombre.setText(nombre)
         editTextDireccion.setText(direccion)
         editTextCorreo.setText(correo)

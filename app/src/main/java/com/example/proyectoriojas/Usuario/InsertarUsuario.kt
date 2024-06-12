@@ -35,12 +35,34 @@ class InsertarUsuario : AppCompatActivity() {
             val correoElectronico = editTextCorreo.text.toString()
             val password = editTextContraseña.text.toString()
 
-            insertarNuevoUsuario(nombre, correoElectronico, password)
+            verificarCorreoYAgregarUsuario(nombre, correoElectronico, password)
         }
 
         buttonRegresar.setOnClickListener {
             finish()
         }
+    }
+
+    private fun verificarCorreoYAgregarUsuario(nombre: String, correoElectronico: String, password: String) {
+        apiService.verificarCorreoExistente(correoElectronico)
+            .enqueue(object : Callback<Boolean> {
+                override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                    if (response.isSuccessful) {
+                        val correoEnUso = response.body() ?: false
+                        if (correoEnUso) {
+                            mostrarMensaje("Error: El correo electrónico ya está en uso")
+                        } else {
+                            insertarNuevoUsuario(nombre, correoElectronico, password)
+                        }
+                    } else {
+                        mostrarMensaje("Error al verificar correo: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                    mostrarMensaje("Error al verificar correo: ${t.message}")
+                }
+            })
     }
 
     private fun insertarNuevoUsuario(nombre: String, correoElectronico: String, password: String) {

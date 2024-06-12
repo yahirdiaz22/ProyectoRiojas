@@ -50,6 +50,21 @@
         android:minWidth="100dp"
         android:minHeight="48dp" />
 
+    <EditText
+        android:id="@+id/editTextConfirmarContraseña"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextContraseña"
+        android:minWidth="100dp"
+        android:minHeight="48dp" />
+
     <Button
         android:id="@+id/buttonRegistrar"
         android:layout_width="wrap_content"
@@ -61,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextContraseña" />
+        app:layout_constraintTop_toBottomOf="@id/editTextConfirmarContraseña" />
 
     <Button
         android:id="@+id/buttonRegresar"
@@ -73,6 +88,6 @@
         android:minHeight="48dp"
         android:text="Regresar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextContraseña" />
+        app:layout_constraintTop_toBottomOf="@id/editTextConfirmarContraseña" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

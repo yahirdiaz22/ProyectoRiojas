@@ -50,6 +50,38 @@
         android:minWidth="100dp"
         android:minHeight="48dp" />
 
+    <EditText
+        android:id="@+id/editTextPrecioUnitario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Precio Unitario"
+        android:inputType="numberDecimal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNombreVenta"
+        android:minWidth="100dp"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/editTextTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Total"
+        android:inputType="numberDecimal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPrecioUnitario"
+        android:minWidth="100dp"
+        android:minHeight="48dp"
+        android:enabled="false"
+        android:focusable="false" />
+
     <Button
         android:id="@+id/buttonInsertarVenta"
         android:layout_width="wrap_content"
@@ -59,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNombreVenta" />
+        app:layout_constraintTop_toBottomOf="@id/editTextTotal" />
 
     <Button
         android:id="@+id/buttonRegresar"
@@ -69,6 +101,6 @@
         android:layout_marginTop="44dp"
         android:text="Regresar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNombreVenta" />
+        app:layout_constraintTop_toBottomOf="@id/editTextTotal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

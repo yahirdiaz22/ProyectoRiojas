@@ -22,29 +22,24 @@ class ClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mostrarcliente)
-
         listViewClientes = findViewById(R.id.listViewClientes)
         buttonInsertar = findViewById(R.id.button)
         buttonRegresar = findViewById(R.id.btnRegresar)
-
         buttonInsertar.setOnClickListener {
-            // Abrir la actividad para insertar un nuevo cliente
             val intent = Intent(this, InsertarCliente::class.java)
             startActivity(intent)
         }
-
         buttonRegresar.setOnClickListener {
-            // Finalizar la actividad actual y regresar a la anterior
             finish()
         }
 
-        // Inicializar la carga de clientes
+
         obtenerClientesDesdeAPI()
     }
 
     override fun onResume() {
         super.onResume()
-        // Volver a cargar los clientes cuando la actividad vuelva a estar en primer plano
+
         obtenerClientesDesdeAPI()
     }
 
@@ -62,12 +57,12 @@ class ClienteActivity : AppCompatActivity() {
 
                     listViewClientes.adapter = adapter
                 } else {
-                    // Manejar errores de la respuesta
+
                 }
             }
 
             override fun onFailure(call: Call<List<Cliente>>, t: Throwable) {
-                // Manejar errores de conexión
+
             }
         })
     }
@@ -89,14 +84,14 @@ class ClienteActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@ClienteActivity, "Cliente eliminado: ${cliente.nombre}", Toast.LENGTH_SHORT).show()
-                    obtenerClientesDesdeAPI() // Volver a cargar los clientes después de eliminar
+                    obtenerClientesDesdeAPI()
                 } else {
-                    // Manejar errores de la respuesta
+
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                // Manejar errores de conexión
+
             }
         })
     }

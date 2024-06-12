@@ -16,7 +16,6 @@ class ClienteAdapter(
 ) : ArrayAdapter<Cliente>(context, R.layout.item_cliente, dataSource) {
 
     private class ViewHolder {
-        lateinit var idCliente: TextView
         lateinit var nombre: TextView
         lateinit var direccion: TextView
         lateinit var botonEliminar: ImageButton
@@ -30,7 +29,6 @@ class ClienteAdapter(
         if (convertView == null) {
             view = LayoutInflater.from(context).inflate(R.layout.item_cliente, parent, false)
             holder = ViewHolder()
-            holder.idCliente = view.findViewById(R.id.textViewIdCliente)
             holder.nombre = view.findViewById(R.id.textViewNombre)
             holder.direccion = view.findViewById(R.id.textViewDireccion)
             holder.botonEliminar = view.findViewById(R.id.botonEliminar)
@@ -41,20 +39,13 @@ class ClienteAdapter(
             holder = convertView.tag as ViewHolder
         }
 
-        // Obtener el cliente actual
         val cliente = dataSource[position]
-
-        // Asignar valores a los TextView
-        holder.idCliente.text = cliente.idCliente.toString()
         holder.nombre.text = cliente.nombre
         holder.direccion.text = cliente.direccion
-
-        // Configurar el botón eliminar
         holder.botonEliminar.setOnClickListener {
             eliminarClienteCallback(cliente)
         }
 
-        // Configurar el botón editar
         holder.botonEditar.setOnClickListener {
             val intent = Intent(context, EditarClienteActivity::class.java).apply {
                 putExtra("ID_CLIENTE", cliente.idCliente)

@@ -44,13 +44,6 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <TextView
-            android:id="@+id/textViewIdProducto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ID Producto"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewNombre"
@@ -66,6 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Precio"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewCantidad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cantidad"
             android:textStyle="bold" />
     </LinearLayout>
 

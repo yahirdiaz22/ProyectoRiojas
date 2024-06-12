@@ -28,23 +28,19 @@ class ProveedorActivity : AppCompatActivity() {
         buttonRegresar = findViewById(R.id.btnRegresar)
 
         buttonInsertar.setOnClickListener {
-            // Abrir la actividad para insertar un nuevo proveedor
             val intent = Intent(this, InsertarProveedor::class.java)
             startActivity(intent)
         }
 
         buttonRegresar.setOnClickListener {
-            // Finalizar la actividad actual y regresar a la anterior
             finish()
         }
 
-        // Inicializar la carga de proveedores
         obtenerProveedoresDesdeAPI()
     }
 
     override fun onResume() {
         super.onResume()
-        // Volver a cargar los proveedores cuando la actividad vuelva a estar en primer plano
         obtenerProveedoresDesdeAPI()
     }
 
@@ -60,12 +56,10 @@ class ProveedorActivity : AppCompatActivity() {
 
                     listViewProveedores.adapter = adapter
                 } else {
-                    // Manejar errores de la respuesta
                 }
             }
 
             override fun onFailure(call: Call<List<Proveedor>>, t: Throwable) {
-                // Manejar errores de conexión
             }
         })
     }
@@ -87,14 +81,12 @@ class ProveedorActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@ProveedorActivity, "Proveedor eliminado: ${proveedor.nombre}", Toast.LENGTH_SHORT).show()
-                    obtenerProveedoresDesdeAPI() // Volver a cargar los proveedores después de eliminar
+                    obtenerProveedoresDesdeAPI()
                 } else {
-                    // Manejar errores de la respuesta
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                // Manejar errores de conexión
             }
         })
     }

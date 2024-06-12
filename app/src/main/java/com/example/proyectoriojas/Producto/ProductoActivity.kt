@@ -20,11 +20,8 @@ class ProductoActivity : AppCompatActivity() {
 
         listViewProductos = findViewById(R.id.listViewProductos)
 
-        // Inicializar el adaptador con una lista vacía
         productoAdapter = ProductoAdapter(this, mutableListOf(), { producto ->
-            // Implementar eliminación de producto si lo deseas
         }) { producto ->
-            // Abrir la actividad de edición de producto
             val intent = Intent(this, EditarProductoActivity::class.java).apply {
                 putExtra("idProducto", producto.idProducto)
                 putExtra("nombre", producto.nombre)
@@ -34,30 +31,24 @@ class ProductoActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE_EDITAR_PRODUCTO)
         }
 
-        // Establecer el adaptador en el ListView
         listViewProductos.adapter = productoAdapter
 
-        // Cargar los datos iniciales
         cargarDatos()
     }
 
     private fun cargarDatos() {
-        // Hacer la solicitud a la API para obtener los productos
         RetrofitClient.apiService.obtenerProductos().enqueue(object : Callback<List<Producto>> {
             override fun onResponse(call: Call<List<Producto>>, response: Response<List<Producto>>) {
                 if (response.isSuccessful) {
                     val productos = response.body()
                     productos?.let {
-                        // Actualizar el adaptador con los datos obtenidos
                         productoAdapter.actualizarDatos(it.toMutableList())
                     }
                 } else {
-                    // Manejar el error de la respuesta
                 }
             }
 
             override fun onFailure(call: Call<List<Producto>>, t: Throwable) {
-                // Manejar el error de la solicitud
             }
         })
     }
